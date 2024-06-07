@@ -1,5 +1,7 @@
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Set directory path and file name
 directory_path = 'C:/Users/Hopi/Awork/da-assignment'
@@ -65,3 +67,16 @@ print("Sweden Correlation Matrix")
 print(sweden_corr)
 print("Spain Correlation Matrix")
 print(spain_corr)
+
+# visualize correlation matrix
+plt.figure(figsize=(20, 8))
+
+plt.subplot(1, 2, 1)
+sns.heatmap(sweden_corr, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+plt.title('Correlation Matrix - Sweden')
+
+plt.subplot(1, 2, 2)
+sns.heatmap(spain_corr, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+plt.title('Correlation Matrix - Spain')
+
+plt.show()
