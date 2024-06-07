@@ -28,7 +28,14 @@ filtered_data.columns = [
 # Print data 2
 print(filtered_data.head())
 
-# 변경된 데이터 저장
+# Drop rows with missing values & turn "Yes/No" to "1/0"
+filtered_data.replace({'Yes': 1, 'No': 0}, inplace=True)
+filtered_data.dropna(inplace=True)
+
+# Print data 3
+print(filtered_data.head())
+
+# Save data to "cleaned_data.xlsx"
 output_file_name = 'cleaned_data.xlsx'
 output_file_path = os.path.join(directory_path, output_file_name)
 
